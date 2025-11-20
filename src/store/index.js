@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import countReducer from "./countSlice";
-import todoReducer from "./todoSlice";
+import crudSlice from "./crudSlice"; 
+import todoSlice from "./todoSlice";  
 
 const store = configureStore({
   reducer: {
-    count: countReducer,
-    todo: todoReducer,
+    crud: crudSlice,  
+    todo: todoSlice,  
   },
 });
 
