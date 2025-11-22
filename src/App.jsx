@@ -1,50 +1,40 @@
 import React from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
+import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import CrudPage from "./pages/CrudPage";
+import TodoItem from "./components/TodoItem";
+import TodoList from "./components/TodoList";
 
-const Navbar = () => {
-  return (
-    <nav className="bg-blue-100 shadow-md px-6 py-4">
-      <div className="max-w-5xl mx-auto flex justify-between items-center">
-        <h1 className="font-bold text-lg">My App</h1>
-        <div className="flex gap-6">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-800 font-semibold border-b-2 border-blue-800 pb-1"
-                : "text-gray-700 hover:text-blue-700"
-            }
-          >
-            Bosh sahifa
-          </NavLink>
-          <NavLink
-            to="/crud"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-800 font-semibold border-b-2 border-blue-800 pb-1"
-                : "text-gray-700 hover:text-blue-700"
-            }
-          >
-            CRUD
-          </NavLink>
-        </div>
-      </div>
-    </nav>
-  );
-};
+import ProfileLayout from "./components/ProfileLayout";
+import Profile from "./pages/profile/Profile";
+import Orders from "./pages/profile/Orders";
+import Address from "./pages/profile/Address";
+
+import PrivateRoute from "./components/PrivateRoute";
+import TodoPage from "./pages/TodoPage";
 
 const App = () => {
   return (
-    <>
-      <Navbar />
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<TodoPage />} />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+        <Route element={<PrivateRoute />}>
+        <Route path="/td" element={<HomePage />} />
           <Route path="/crud" element={<CrudPage />} />
-        </Routes>
-    </>
+          <Route path="/todo" element={<TodoItem />} />
+          <Route path="/todolist" element={<TodoList />} />
+          
+          <Route path="/profile" element={<ProfileLayout />}>
+            <Route index element={<Profile />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="address" element={<Address />} />
+          </Route>
+        </Route>
+      </Route>
+    </Routes>
   );
 };
 

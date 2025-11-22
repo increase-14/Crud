@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import crudSlice from "./crudSlice"; 
-import todoSlice from "./todoSlice";  
+import todoSlice from "./todoSlice";
+import crudSlice from "./crudSlice";
+import adminSlice from "./adminSlice";  
 
 const store = configureStore({
   reducer: {
-    crud: crudSlice,  
-    todo: todoSlice,  
+    todo: todoSlice,
+    crud: crudSlice,
+    auth: adminSlice, 
   },
 });
 

@@ -23,7 +23,7 @@ export default function AddTodo() {
           className="flex-1 px-6 py-4 text-lg rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition shadow-sm"
           required
         />
-        <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition shadow-lg">
+        <button className="px-10 py-4 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition shadow-lg">
           + Qo'shish
         </button>
       </div>
